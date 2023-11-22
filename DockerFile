@@ -1,0 +1,13 @@
+FROM php:7.2.2-apache
+
+FROM mysql:5.7
+
+WORKDIR /code
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8100
+
+ENTRYPOINT [ "php", "index.php" ]
